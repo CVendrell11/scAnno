@@ -46,7 +46,7 @@ lrPredModel <- function(obj.ref, obj.seu, down.sample = 100) {
 	
 	sklearn <- import('sklearn.linear_model')
 	# Convert the 'max_iter' parameter to an integer
-	max_iter <- as.integer(100000)
+	max_iter <- as.integer(10000)
 	lr <- sklearn$LogisticRegression(max_iter = max_iter, penalty = 'l2', C = 0.2)
 	lr$fit(obj.ref.sub %>% GetAssayData(.) %>% as.matrix %>% t, Idents(obj.ref.sub) %>% as.vector)
 	
